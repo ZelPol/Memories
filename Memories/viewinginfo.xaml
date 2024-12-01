@@ -1,0 +1,64 @@
+﻿<Window x:Class="Memories.viewinginfo" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Memories"
+        mc:Ignorable="d"
+        Title="viewinginfo" Height="450" Width="800" Icon="Resources/iconeduc.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="C:\Users\User\source\repos\Memories\Memories\Resources\iconeduc.png" HorizontalAlignment="Left"></Image>
+        <TextBlock Text="Courses for students" FontSize="24" FontFamily="Microsoft Sans Serif" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+        <Grid Background="#ffa000" Panel.ZIndex="-2"></Grid>
+        <Grid Grid.Row="2" Background="#FFE1E5C1"></Grid>
+        <Button x:Name="btnExit" Content="Назад" HorizontalAlignment="Left" Margin="658,22,0,0" VerticalAlignment="Top" Width="101" Height="29" Background="#FFE1E5C1" Click="btnExit_Click" FontFamily="Microsoft Sans Serif" FontWeight="Bold"/>
+        <DataGrid  x:Name="DGCourses" HorizontalAlignment="Center" Height="243" Margin="101,40.8,97.6,0" VerticalAlignment="Top" Width="595" Grid.Row="1" Background="#FFFFA000" BorderBrush="#FFE1E5C1" FontFamily="Microsoft YaHei" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Изображение" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Margin="0" Source="{Binding Path=Image}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding Name}" FontSize= "12" Header="Курс" Width="*" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Date}" FontSize="12" Header="Дата" Width="80">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Professor}" FontSize="12" Header="Преподаватель" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Aud}" FontSize="12" Header="Аудитория" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="obnov" Content="Обновить" HorizontalAlignment="Center" Margin="554,9.8,97.6,0" VerticalAlignment="Top" Width="142" Height="26" Click="obnov_Click" RenderTransformOrigin="0.173,0.828" Grid.Row="1" FontFamily="Microsoft Sans Serif" FontWeight="Bold" Background="#FFFFA000" BorderBrush="Black"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="26" Margin="164,9.8,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="137" TextChanged="txtSearch_TextChanged" BorderBrush="#FFFFA000"/>
+        <Label Content="Поиск:" HorizontalAlignment="Left" Margin="101,9.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="58" Foreground="Black" FontWeight="Bold"/>
+        <Button x:Name="btnSignUp" Content="Записаться на курс" HorizontalAlignment="Left" Margin="282,288.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230" Foreground="Black" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Microsoft Himalaya" Height="26" Click="btnSignUp_Click"/>
+
+
+    </Grid>
+</Window>
